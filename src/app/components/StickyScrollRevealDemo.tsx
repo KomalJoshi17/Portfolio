@@ -66,6 +66,7 @@
 import React from "react";
 import { StickyScroll } from "./ui/sticky-scroll-reveal";
 
+// Make sure to export the component
 export function StickyScrollRevealDemo() {
   const content = [
     {
@@ -85,7 +86,7 @@ export function StickyScrollRevealDemo() {
     {
       title: "IBM DevOps and Software Engineering (Coursera)",
       description:
-        "Earned IBM’s Professional Certificate for mastering DevOps and Cloud Engineering tools like Docker, Kubernetes, GitHub, and CI/CD pipelines. Built hands-on experience in Agile, Linux scripting, and microservices development.",
+        "Earned IBM's Professional Certificate for mastering DevOps and Cloud Engineering tools like Docker, Kubernetes, GitHub, and CI/CD pipelines. Built hands-on experience in Agile, Linux scripting, and microservices development.",
       content: (
         <div className="flex h-48 w-full items-center justify-center bg-gray-700">
           <img

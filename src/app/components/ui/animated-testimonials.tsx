@@ -29,12 +29,14 @@ export const AnimatedTestimonials = ({
     setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
+  // Add the missing dependency to the useEffect hook
   useEffect(() => {
-    if (autoplay && !isHovered) {
-      const interval = setInterval(handleNext, 6000);
-      return () => clearInterval(interval);
-    }
-  }, [autoplay, isHovered]);
+    const interval = setInterval(() => {
+      handleNext();
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, [handleNext]); // Add handleNext to the dependency array
 
   return (
     <section

@@ -34,7 +34,7 @@ export function CarouselDemo() {
           My Projects
         </h2>
         <p className="text-gray-400 text-lg mb-16">
-          A collection of web apps I've crafted using modern tools & tech.
+          A collection of web apps I&apos;ve crafted using modern tools &amp; tech.
         </p>
 
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">

@@ -42,7 +42,7 @@ export const TypewriterEffect = ({
         }
       );
     }
-  }, [isInView]);
+  }, [isInView, animate]); // Added animate to the dependency array
 
   const renderWords = () => {
     return (
@@ -330,15 +330,19 @@ export const TypewriterEffectSmooth = ({
 //     if (isInView) {
 //       animate(
 //         "span",
-//         { display: "inline-block", opacity: 1 },
 //         {
-//           duration: 0.2,
-//           delay: stagger(0.05),
-//           ease: "easeOut",
+//           display: "inline-block",
+//           opacity: 1,
+//           width: "fit-content",
+//         },
+//         {
+//           duration: 0.3,
+//           delay: stagger(0.1),
+//           ease: "easeInOut",
 //         }
 //       );
 //     }
-//   }, [isInView]);
+//   }, [isInView, animate]);
 
 //   return (
 //     <div
