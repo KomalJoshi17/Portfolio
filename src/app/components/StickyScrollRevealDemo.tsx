@@ -64,57 +64,37 @@
 
 "use client";
 import React from "react";
-import { StickyScroll } from "./ui/sticky-scroll-reveal";
+import { motion } from "framer-motion";
 
-export function StickyScrollRevealDemo() {
-  const content = [
-    {
-      title: "LearnYard DSA Course",
-      description:
-        "Certified for successful completion of the 100% Job Ready DSA Course by LearnYard, demonstrating strong foundations in Data Structures and Algorithms essential for technical interviews and real-world problem solving.",
-      content: (
-        <div className="flex h-48 w-full items-center justify-center bg-gray-700">
-          <img
-            src="/assets/certificates/webdev.png"
-            alt="Web Development Certificate"
-            className="w-full object-cover rounded-md"
-          />
-        </div>
-      ),
-    },
-    {
-      title: "IBM DevOps and Software Engineering (Coursera)",
-      description:
-        "Earned IBM’s Professional Certificate for mastering DevOps and Cloud Engineering tools like Docker, Kubernetes, GitHub, and CI/CD pipelines. Built hands-on experience in Agile, Linux scripting, and microservices development.",
-      content: (
-        <div className="flex h-48 w-full items-center justify-center bg-gray-700">
-          <img
-            src="/assets/certificates/react.png"
-            alt="React Certificate"
-            className="w-full object-cover rounded-md"
-          />
-        </div>
-      ),
-    },
-    {
-      title: "Hack-a-Throne 1.0 - GeeksforGeeks",
-      description:
-        "Successfully completed the Hack-a-Throne 1.0 hackathon organized by AIESEC in Jalandhar in collaboration with GeeksforGeeks. Demonstrated strong coding skills, problem-solving ability, and innovation under time constraints in a real-world tech challenge.",
-      content: (
-        <div className="flex h-48 w-full items-center justify-center bg-gray-700">
-          <img
-            src="/assets/certificates/aws.png"
-            alt="AWS Certificate"
-            className="w-full object-cover rounded-md"
-          />
-        </div>
-      ),
-    },
-  ];
+type StickyScrollItem = {
+  title: string;
+  description: string;
+  content: React.ReactNode;
+};
 
+type StickyScrollProps = {
+  content: StickyScrollItem[];
+};
+
+export const StickyScroll: React.FC<StickyScrollProps> = ({ content }) => {
   return (
-    <div className="w-full py-4">
-      <StickyScroll content={content} />
+    <div className="relative w-full max-w-5xl mx-auto px-4">
+      {content.map((item, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <div className="sticky top-4 z-10 bg-black p-6 rounded-lg shadow-lg border border-gray-800">
+            <h2 className="text-2xl font-bold text-white mb-2">{item.title}</h2>
+            <p className="text-gray-300 mb-4">{item.description}</p>
+            {item.content}
+          </div>
+        </motion.div>
+      ))}
     </div>
   );
-}
+};
