@@ -14,7 +14,7 @@ const certificates = [
   },
   {
     title: 'UI/UX Design',
-    description: 'Completed Google's UI/UX certification.',
+    description: "Completed Google's UI/UX certification.",  // Changed single quote to double quotes to handle the apostrophe
     image: '/assets/certificates/react.png',
   },
   {
