@@ -245,6 +245,7 @@ export const StickyScrollRevealDemo = () => {
         </div>
 
         {/* Sticky Visual Preview */}
+        // In the StickyScrollRevealDemo component
         <motion.div
           style={{
             background: backgroundGradient,
@@ -256,12 +257,14 @@ export const StickyScrollRevealDemo = () => {
           animate={{ opacity: 1, scale: 1 }}
         >
           <div className="relative w-full h-full">
-            <Image
-              src={certificates[activeCard].image}
-              alt={certificates[activeCard].title}
-              fill
-              style={{ objectFit: "cover" }}
-              className="rounded-2xl"
+            {/* Replace Image with a div with background image for simplicity */}
+            <div 
+              className="w-full h-full rounded-2xl"
+              style={{
+                backgroundImage: `url(${certificates[activeCard].image})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
             />
           </div>
         </motion.div>
